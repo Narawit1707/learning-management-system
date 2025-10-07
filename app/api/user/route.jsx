@@ -1,6 +1,7 @@
+import { eq } from "drizzle-orm";
 
-import { db } from '@db/config/db';
-import { usersTable } from "@/config/schema";
+import { db } from "/config/db";
+import { usersTable } from "/config/schema";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
