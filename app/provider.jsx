@@ -1,12 +1,14 @@
 "use client"
 import { useUser } from '@clerk/nextjs';
 import axios from 'axios'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { UserDetailContext } from '/context/UserDetailContext';
 
 
 function Provider({ children }) {
 
   const {user}=useUser();
+  const [userDetail,setUserDetail]=useState();
 
   useEffect(()=>{
       user&&CreateNewUser();
@@ -19,9 +21,12 @@ function Provider({ children }) {
 
     });
     console.log(result.data);
+    setUserDetail(result.data);
   }
   return (
-    <div> {children} </div>
+    <UserDetailContext.Provider value={{userDetail,setUserDetail}}>
+       <div> {children} </div>
+    </UserDetailContext.Provider>
   )
 }
 
