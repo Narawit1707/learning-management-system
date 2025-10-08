@@ -11,3 +11,7 @@ npm i -D drizzle-kit tsx
 npm i axios
 
 npx shadcn@latest add sidebar
+
+npx shadcn@latest add input
+npx shadcn@latest add dialog
+npx shadcn@latest add switch
